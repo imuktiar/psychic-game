@@ -1,4 +1,4 @@
-Psychic-Game
+The Psychic-Game
 
 A Javascript game.
 
@@ -8,7 +8,7 @@ Also giving you the amount of losses & wins with the amount of tries you have le
 
 Built With
 
-[html]
-[css]
-[javascript]
-[bootstrap]
+*[html]
+*[css]
+*[javascript]
+*[bootstrap]
