@@ -1,33 +1,49 @@
-const psychicLetters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
- const youWin = 0;
- const youLose = 0;
- const guessesLeft = 13;
- const guessedLetters = []; 
- const numbers = 1;
+var won = 0;
+var lost = 0;
+var attempts = 10;
+var GuessedArray = [];
+var rightLetter = rightLetter;
+var letters = "qwertyuiopasdfghjklzxcvbnm"
 
- document.onkeyup = function(event) {
-   const yourGuess = event.key; 
-   guessedLetters.push(yourGuess); 
-   const psychicAnswers = psychicLetters[Math.floor(Math.random() *    psychicLetters.length)];
+rightLetter = letters[Math.floor(Math.random() * letters.length)];
+console.log(rightLetter);
 
-   if (yourGuess === psychicAnswers) {
-     youWin++;
-     guessesLeft = 12;
-   }
-
-   else {
-     guessesLeft--;
-   }
-
-   if (guessesLeft === 0){
-     youLose++;
-     guessesLeft = 12;
+function Guess() {
+      rightLetter = letters[Math.floor(Math.random() * letters.length)];
+      console.log(rightLetter);
 
 }
-   
-   
 
-   const html = "<p>Guess what letter I'm thinking of:</p>" + "<p>Wins: " 
-   + youWin + "</p>" + "<p>Loses: "+ youLose + "<p>Guesses Remaining: " + guessesLeft + "<p>Guessed Letter: " +  guessedLetters.join(', '); 
-   document.querySelector("#psychicAct").innerHTML = html;
- }
+document.onkeyup = function (event) {
+      var playerGuess = event.key;
+
+      if (playerGuess === rightLetter) {
+            won++;
+            attempts = 10;
+            GuessedArray = [];
+
+      }
+
+      Guess();
+      if (playerGuess !== rightLetter) {
+            attempts--;
+
+      }
+      if (attempts == 0) {
+            lost++;
+            GuessedArray = []
+            attempts = 10;
+      }
+      if (GuessedArray.indexOf(playerGuess) >= 0) {
+
+      } else {
+            GuessedArray.push(playerGuess);
+            document.getElementById('playerGuess').innerHTML = GuessedArray;
+            console.log(GuessedArray);
+
+      }
+      document.getElementById('won').innerHTML = won;
+      document.getElementById('lost').innerHTML = lost;
+      document.getElementById('attempts').innerHTML = attempts;
+
+}
