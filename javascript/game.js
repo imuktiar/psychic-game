@@ -3,7 +3,7 @@ var lost = 0;
 var attempts = 10;
 var GuessedArray = [];
 var rightLetter = rightLetter;
-var letters = "qwertyuiopasdfghjklzxcvbnm"
+var letters = "abcdefghijklmnopqrstuvwxyz"
 
 rightLetter = letters[Math.floor(Math.random() * letters.length)];
 console.log(rightLetter);
@@ -21,6 +21,7 @@ document.onkeyup = function (event) {
             won++;
             attempts = 10;
             GuessedArray = [];
+            alert ("YAS")
 
       }
 
